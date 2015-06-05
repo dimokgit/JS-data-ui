@@ -7,8 +7,12 @@ var dist = "./lib/";
 
 // Copies index.html, replacing <script> and <link> tags to reference production URLs
 gulp.task('js', function() {
-  return gulp.src(['./src/app/configer.js', './src/app/app-config.js'])
+  return gulp.src(['./src/app/JayData.kendo.extensions.js'])
         .pipe(gulp.dest(dist));
+});
+gulp.task('css', function () {
+  return gulp.src(['./src/css/styles.css'])
+        .pipe(gulp.dest(dist+"css/"));
 });
 
 // Removes all files from ./dist/
@@ -17,7 +21,7 @@ gulp.task('clean', function() {
         .pipe(clean());
 });
 
-gulp.task('default', ['js'], function (callback) {
+gulp.task('default', ['js','css'], function (callback) {
   callback();
   console.log('\nPlaced optimized files in ' + chalk.magenta(dist + '\n'));
 });

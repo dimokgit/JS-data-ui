@@ -6,6 +6,7 @@
   "ignore": [
     "*",
     "!lib/",
+    "!lib/css/*.css",
     "!lib/JayData.kendo.extensions.js"
   ],
   "dependencies": {

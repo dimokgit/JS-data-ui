@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>data-ui</title>
+  <!-- build:css -->
+  <link href="js/kendo-2015.1.429/styles/kendo.common-material.min.css" rel="stylesheet" />
+  <link href="js/kendo-2015.1.429/styles/kendo.material.min.css" rel="stylesheet" />
+  <link href="js/kendo-2015.1.429/styles/kendo.dataviz.min.css" rel="stylesheet" />
+  <link href="js/kendo-2015.1.429/styles/kendo.dataviz.material.min.css" rel="stylesheet" />
+  <link href="js/kendo-2015.1.429/styles/kendo.dataviz.default.min.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet">
+  <!-- endbuild -->
+  <!-- build:js -->
+  <script src="app/require.config.js"></script>
+  <script data-main="app/startup" src="bower_modules/requirejs/require.js"></script>
+  <!-- endbuild -->
+  <style>
+    div.k-grid td{
+      padding:0;
+    }
+    div.k-grid thead.k-grid-header th.k-header>.k-link{
+      padding-top:0;
+      padding-bottom:0;
+    }
+    div.k-grid .k-pager-wrap>.k-link{
+      height:1em;
+      line-height:1em;
+    }
+    div.k-grid .k-pager-wrap{
+      padding-top:0;
+      padding-bottom:0;
+      line-height:0;
+    }
+    div.k-grid .k-pager-wrap .k-pager-numbers .k-link,
+    div.k-grid .k-pager-wrap .k-pager-numbers .k-state-selected
+    {
+      height:1em;
+      line-height:1em;
+    }
+  </style>
+</head>
+<body>
+  <div id="grid" data-bind="elementer:startTest"></div>
+</body>
+</html>

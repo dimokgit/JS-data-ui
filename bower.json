@@ -1,0 +1,27 @@
+{
+  "name": "data-ui",
+  "version": "0.1.0",
+  "main": "lib/*.*",
+  "private": false,
+  "ignore": [
+    "*",
+    "!lib/",
+    "!lib/JayData.kendo.extensions.js"
+  ],
+  "dependencies": {
+    "requirejs": "~2.1.11",
+    "jquery": "~2.1.4",
+    "monads": "http://usmrtpwjirq01.corp.itauinternational.com:7990/scm/jsl/monads.git"
+  },
+  "resolutions": {
+    "knockout": "~3.3.0",
+    "jquery": "~2.1.4"
+  },
+  "devDependencies": {
+    "knockout": "~3.3.0",
+    "JayData": "http://usmrtpwjirq01.corp.itauinternational.com:7990/scm/jsl/jaydata.git",
+    "jquery.extentions": "http://usmrtpwjirq01.corp.itauinternational.com:7990/scm/jsl/jquery.extentions.git",
+    "underscore": "~1.8.3",
+    "jquery-ui": "~1.11.4"
+  }
+}

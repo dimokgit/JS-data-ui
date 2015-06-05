@@ -1,6 +1,6 @@
 /// <reference path="../bower_modules/knockout/dist/knockout.js" />
 define("ko", ["knockout"], function (ko) { return ko; });
-define(['knockout', 'promise-monad', 'JayData.kendo.extensions','JayData', 'kendoJayData', 'koJayData', 'Northwind','jquery.extentions.D', 'ko.extensions'], function (ko, PM, JKE) {
+define(['knockout', 'promise-monad', 'JayData.kendo.extensions','JayData', 'kendoJayData', 'koJayData', 'Northwind', 'ko.extensions'], function (ko, PM, JKE) {
   function VM(dbContext) {
     this.customers = ko.pureComputed(function () {
       return JSON.stringify(customers(), null, 2);

@@ -7,7 +7,14 @@ define(['knockout', 'promise-monad', 'JayData.kendo.extensions','JayData', 'kend
     });
     this.startTest = function (element) {
       var columns = JKE.columnsFactory(dbContext.Customers, ["*","CompanyName","Address","City"]);
-      JKE.gridFactory(element, dbContext.Customers, { pageSize: 20 }, { columns: columns, editable: false, filterable: false, pageable: { refresh: true } });
+      JKE.gridFactory(element, dbContext.Customers,
+        { pageSize: 20 },
+        {
+          columns: columns,
+          editable: false,
+          filterable: false,
+          pageable: { refresh: true }
+        });
     };
   }
 

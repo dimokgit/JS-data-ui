@@ -1,0 +1,25 @@
+div.k-grid td {
+  padding: 0;
+}
+
+div.k-grid thead.k-grid-header th.k-header > .k-link {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+div.k-grid .k-pager-wrap > .k-link {
+  height: 1em;
+  line-height: 1em;
+}
+
+div.k-grid .k-pager-wrap {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 0;
+}
+
+  div.k-grid .k-pager-wrap .k-pager-numbers .k-link,
+  div.k-grid .k-pager-wrap .k-pager-numbers .k-state-selected {
+    height: 1em;
+    line-height: 1em;
+  }

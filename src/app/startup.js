@@ -1,20 +1,27 @@
 /// <reference path="../bower_modules/knockout/dist/knockout.js" />
 define("ko", ["knockout"], function (ko) { return ko; });
-define(['knockout', 'promise-monad', 'JayData.kendo.extensions','JayData', 'kendoJayData', 'koJayData', 'Northwind', 'ko.extensions'], function (ko, PM, JKE) {
+define(['knockout', 'promise-monad', 'JayData.kendo.extensions', 'JayData', 'kendoJayData', 'koJayData', 'Northwind', 'ko.extensions']
+, function (ko, PM, JKE) {
   function VM(dbContext) {
     this.customers = ko.pureComputed(function () {
       return JSON.stringify(customers(), null, 2);
     });
     this.startTest = function (element) {
-      var columns = JKE.columnsFactory(dbContext.Customers, ["*","CompanyName","Address","City"]);
-      JKE.gridFactory(element, dbContext.Customers,
+      var columns = JKE.columnsFactory(dbContext.Customers, ["*", "CompanyName", "Address", "City"]);
+      var gridContext = JKE.gridFactory(element, dbContext.Customers,
         { pageSize: 20 },
         {
+          smartPager: true,
           columns: columns,
           editable: false,
-          filterable: false,
+          //filterable: true,
           pageable: { refresh: true }
         });
+      gridContext.kendoGrid.bind("dataBound", togglePager);
+      /// Locals
+      function togglePager() {
+        alert("Still firing");
+      }
     };
   }
 
@@ -33,4 +40,4 @@ define(['knockout', 'promise-monad', 'JayData.kendo.extensions','JayData', 'kend
   function startApp(DB) {
     ko.applyBindings(new VM(DB));
   }
-});;
+});

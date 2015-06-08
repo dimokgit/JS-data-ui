@@ -9,18 +9,23 @@ define(['knockout', 'promise-monad', 'JayData.kendo.extensions', 'JayData', 'ken
     this.startTest = function (element) {
       var columns = JKE.columnsFactory(dbContext.Customers, ["*", "CompanyName", "Address", "City"]);
       var gridContext = JKE.gridFactory(element, dbContext.Customers,
-        { pageSize: 20 },
+        {
+          serverPaging: new Boolean(true),
+          pageSize: 20
+        },
         {
           smartPager: true,
           columns: columns,
           editable: false,
           //filterable: true,
-          pageable: { refresh: true }
+          pageable: {
+            refresh: true,
+            buttonCount: 3
+          }
         });
       gridContext.kendoGrid.bind("dataBound", togglePager);
       /// Locals
       function togglePager() {
-        alert("Still firing");
       }
     };
   }

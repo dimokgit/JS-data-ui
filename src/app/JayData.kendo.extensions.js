@@ -10,6 +10,8 @@
     function JayDataKendoExtentions() { }
     JayDataKendoExtentions.gridFactory = gridFactory;
     JayDataKendoExtentions.columnsFactory = makeKendoColumns;
+    JayDataKendoExtentions.selectItems = selectItems;
+    
     JayDataKendoExtentions.LookUpOptions = LookUpOptions;
     JayDataKendoExtentions.lookUpEditor = lookUpEditor;
     JayDataKendoExtentions.comboBoxEditor = comboBoxEditor;
@@ -20,6 +22,7 @@
       kendoEx: {
         gridFactory: gridFactory,
         columnsFactory: makeKendoColumns,
+        selectItems: selectItems,
         LookUpOptions: LookUpOptions,
         lookUpEditor: lookUpEditor,
         comboBoxEditor: comboBoxEditor,
@@ -427,6 +430,18 @@
       /// Locals
       function makeRootLink(member, data) { return "<a href='" + location.pathname + "?root=" + data[member] + "'>" + data[member] + "</a>" }
     }
+
+    function selectItems(grid, page, fieldValues, fieldName) {
+      grid.dataSource.page(page);
+      if (!$.isArray(fieldValues)) fieldValues = [fieldValues];
+      var items = grid
+        .items()
+        .filter(function (i, el) {
+          return fieldValues.indexOf(grid.dataItem(el)[fieldName]) !== -1;
+        });
+      grid.select(items);
+    }
+
 
     function hideGrid(e) { e.sender.element.hide("fast"); }
 

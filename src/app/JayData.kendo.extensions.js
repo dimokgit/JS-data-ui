@@ -314,7 +314,7 @@
           });
           kendoLoader = null;
         }
-        if (["read"].indexOf(e.type) < 0) {
+        if (e.type && ["read"].indexOf(e.type) < 0) {
           $.D.successMessage("Record was successfully " + e.type + "ed.");
           requestEnd({ type: e.type, entity: entity.name });
           requestEndLocal({ type: e.type, entity: entity.name });

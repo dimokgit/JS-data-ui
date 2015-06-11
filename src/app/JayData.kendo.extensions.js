@@ -1,4 +1,4 @@
-﻿/// <reference path="json2.js" />
+/// <reference path="json2.js" />
 /// <reference path="jquery-1.10.2.min.js" />
 /// <reference path="knockout.js" />
 (function () {
@@ -297,6 +297,7 @@
             this.pager.element.hide();
           else this.pager.element.show();
         });
+      var kendoLoader = [];
       return {
         grid: grid,
         kendoGrid: grid.data("kendoGrid"),
@@ -305,14 +306,12 @@
         requestEndLocal: requestEndLocal
       };
       /// Locals ///
-      var kendoLoader;
       function onRequestEnd(e) {
         //if (e.type == "destroy" && kendoLoader) {
-        if (kendoLoader) {
-          kendoLoader.fadeOut(1500, "swing", function () {
+        if (kendoLoader.length) {
+          kendoLoader.pop().fadeOut(1000, "swing", function () {
             $(this).remove();
           });
-          kendoLoader = null;
         }
         if (e.type && ["read"].indexOf(e.type) < 0) {
           $.D.successMessage("Record was successfully " + e.type + "ed.");
@@ -338,10 +337,10 @@
           }
         });
         if (e.type && $.D)
-          kendoLoader = $.D.loader.show((e.type || "Request ") + " is pending ...");
+          kendoLoader.push($.D.loader.show((e.type || "Request ") + " is pending ..."));
       }
     }
-    var offsetMiliseconds = new Date().getTimezoneOffset() * 60000;
+    function offsetMiliseconds() { return new Date().getTimezoneOffset() * 60000; }
     function makeKendoColumns(entitySet, exclude, onKendoColumnCreated) {
       var options = $.isPlainObject(onKendoColumnCreated) ? onKendoColumnCreated : {};
       if (options === onKendoColumnCreated)

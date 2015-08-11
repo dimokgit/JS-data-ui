@@ -228,6 +228,7 @@
     }
     var requestEnd = ko.observable();
     function gridFactory(element, entity, dataSourceOptions, gridOptions, success) {
+      var kendoLoader = [];
       var requestEndLocal = ko.observable();
       dataSourceOptions = dataSourceOptions || {};
       var dsAfter = dataSourceOptions.after;
@@ -297,7 +298,6 @@
             this.pager.element.hide();
           else this.pager.element.show();
         });
-      var kendoLoader = [];
       return {
         grid: grid,
         kendoGrid: grid.data("kendoGrid"),

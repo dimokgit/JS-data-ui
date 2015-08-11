@@ -7,7 +7,7 @@ var dist = "./lib/";
 
 // Copies index.html, replacing <script> and <link> tags to reference production URLs
 gulp.task('js', function() {
-  return gulp.src(['./src/app/JayData.kendo.extensions.js'])
+  return gulp.src(['./src/app/JayData.kendo.extensions.js', './src/app/kendo.extensions.js'])
         .pipe(gulp.dest(dist));
 });
 gulp.task('css', function () {

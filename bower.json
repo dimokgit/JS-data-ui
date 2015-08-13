@@ -8,6 +8,8 @@
     "!lib/",
     "!lib/css/*.css",
     "!lib/JayData.kendo.extensions.js",
+    "!lib/asSubscribable.js",
+    "!lib/asChartable.js",
     "!lib/kendo.extensions.js"
   ],
   "dependencies": {

@@ -1,14 +1,15 @@
-﻿define('asChartable', ['jquery', 'underscore', 'asSubscribable'], function ($, _, S) {
+﻿define('asChartable', ['jquery', 'underscore', 'asSubscribable'], function ($, _, asSubscribable) {
   function asChartable() {
-    S.call(this);
+    asSubscribable.call(this);
     var chartElement;
+    var getChart = this.getChart = function getChart() { return $(chartElement).data("kendoChart"); }
     this.initChart = function initChart(element) {
       return chartElement = element;
     }
     var super_dispose = this.dispose.bind(this);
     this.dispose = function dispose() {
       super_dispose();
-      var chart = $(chartElement).data("kendoChart");
+      var chart = getChart();
       if (chart) {
         chart.dataSource.data([]);
         _.chain([chart.options.series])

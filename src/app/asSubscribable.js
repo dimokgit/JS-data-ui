@@ -3,11 +3,12 @@
     var subs = [];
     this.subscribe = function subscribe(obs, callback) {
       subs.push(obs.subscribe(callback));
+      return subs;
     }
     this.dispose = function dispose() {
-      subs.forEach(function (s) {
-        s.dispose();
-      });
+      while (subs.length)
+        subs.pop().dispose();
+      return subs;
     };
   };
   asSubscribable.extend = function (d, b) {

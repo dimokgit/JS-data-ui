@@ -5,15 +5,16 @@
 /// <reference path="../bower_modules/jquery.extentions/lib/ko.extensions.js" />
 /// <reference path="../bower_modules/underscore/underscore-min.js" />
 /// <reference path="../bower_modules/jquery.extentions/lib/jquery.extentions.D.js" />
+/// <reference path="asSubscribable.js" />
 // require.js looks for the following global when initializing
 var require = {
   baseUrl: ".",
   paths: {
     "jquery": "bower_modules/jquery/dist/jquery",
     "jquery-ui": "bower_modules/jquery-ui/jquery-ui",
-    "knockout": "bower_modules/knockout/dist/knockout",
     "underscore":"bower_modules/underscore/underscore-min",
     "JSON.prune": "bower_modules/JSON.prune/JSON.prune",
+    "text": "bower_modules/requirejs-text/text",
 
     "datajs": "js/datajs-1.1.3",
     "OData": "js/datajs-1.1.3",
@@ -33,7 +34,17 @@ var require = {
     "Northwind": "js/Northwind",
     "ko.extensions": "bower_modules/jquery.extentions/lib/ko.extensions",
 
-    "promise-monad": "bower_modules/monads/lib/promise-monad"
+    "promise-monad": "bower_modules/monads/lib/promise-monad",
+    "asSubscribable": "app/asSubscribable",
+    "asChartable": "app/asChartable",
+    "asGridable": "app/asGridable",
+    "startup": "app/startup"
+  },
+  map: {
+    '*': {
+      "knockout": "bower_modules/knockout/dist/knockout",
+      "ko": "bower_modules/knockout/dist/knockout"
+    }
   },
   shim: {
     "knockout": {

@@ -22,6 +22,7 @@ define('asChartable', ['jquery', 'underscore', 'asSubscribable'], function ($, _
       }
       $(chartElement).empty();
       function cleanSeries(s) { s.data = []; }
+      return chartElement;
     };
     return this;
   }
@@ -42,6 +43,6 @@ define("addMixin", [], function () {
       return function () {
         return fn.apply(this, args.concat([].slice.call(arguments, 0)));
       };
-    }
+    };
   }
 });

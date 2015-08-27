@@ -1,7 +1,7 @@
 /// <reference path="../bower_modules/knockout/dist/knockout.js" />
-define("ko", ["knockout"], function (ko) { return ko; });
-define(['knockout', 'promise-monad', 'JayData.kendo.extensions', 'JayData', 'kendoJayData', 'koJayData', 'Northwind', 'ko.extensions']
+define("startup",['knockout', 'promise-monad', 'JayData.kendo.extensions', 'JayData', 'kendoJayData', 'koJayData', 'Northwind', 'ko.extensions']
 , function (ko, PM, JKE) {
+  //define("ko", ["knockout"], function (ko) { return ko; });
   function VM(dbContext) {
     this.customers = ko.pureComputed(function () {
       return JSON.stringify(customers(), null, 2);
@@ -29,9 +29,9 @@ define(['knockout', 'promise-monad', 'JayData.kendo.extensions', 'JayData', 'ken
       }
     };
   }
-
+  debugger;
   // init - load app
-  new PM(defineDashboardDB, startApp).pump()
+  return new PM(defineDashboardDB, startApp).pump()
   .fail(function (e) {
     alert(JSON.stringify(e, null, 2));
   });
@@ -43,6 +43,8 @@ define(['knockout', 'promise-monad', 'JayData.kendo.extensions', 'JayData', 'ken
     return p;
   }
   function startApp(DB) {
-    ko.applyBindings(new VM(DB));
+    var vm = new VM(DB);
+    ko.applyBindings(vm);
+    return vm;
   }
 });

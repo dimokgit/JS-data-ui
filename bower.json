@@ -13,9 +13,10 @@
     "!lib/kendo.extensions.js"
   ],
   "dependencies": {
-    "requirejs": "~2.1.11",
     "jquery": "~2.1.4",
-    "monads": "http://usmrtpwjirq01.corp.itauinternational.com:7990/scm/jsl/monads.git"
+    "monads": "http://usmrtpwjirq01.corp.itauinternational.com:7990/scm/jsl/monads.git",
+    "requirejs": "~2.1.11",
+    "text": "requirejs-text#~2.0.14"
   },
   "resolutions": {
     "knockout": "~3.3.0",

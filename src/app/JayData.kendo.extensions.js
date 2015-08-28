@@ -6,7 +6,7 @@
     define(["underscore","knockout", "kendoJayData", 'jquery.extentions.D'], factory);
   else factory(_);
 
-  function factory(_) {
+  function factory(_,ko) {
     function JayDataKendoExtentions() { }
     JayDataKendoExtentions.gridFactory = gridFactory;
     JayDataKendoExtentions.columnsFactory = makeKendoColumns;

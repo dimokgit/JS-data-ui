@@ -1,4 +1,4 @@
-﻿define('asSubscribable', [], function () {
+﻿define('asSubscribable', ["jquery"], function ($) {
   function asSubscribable() {
     var subs = [];
     this.subscribe = function subscribe(obs, callback) {
@@ -15,7 +15,7 @@
       while (subs.length)
         subs.pop().dispose();
       while (ons.length)
-        ons.pop().off();
+        $(ons.pop()).off();
       return { subs: subs, ons: ons };
     };
   };

@@ -1,5 +1,6 @@
 ﻿define('asSubscribable', ["jquery"], function ($) {
   function asSubscribable() {
+    this.className = this.constructor.name;
     var subs = [];
     this.subscribe = function subscribe(obs, callback) {
       subs.push(obs.subscribe(callback));

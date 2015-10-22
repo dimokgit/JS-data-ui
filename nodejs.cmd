@@ -12,6 +12,7 @@ REM npm install -g karma-cli
 
 REM Install plugins that your project needs:
 REM npm install karma-jasmine karma-chrome-launcher --save-dev
+REM karma start
 
 REM npm install -g generator-karma
 REM npm install -g generator-requirejs-jasmine-karma
